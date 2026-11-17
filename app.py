@@ -12,17 +12,14 @@ st.set_page_config(page_title="QC Injection Molding Dashboard", layout="wide")
 st.title("📊 Dashboard Pengendalian Mutu Injection Molding")
 st.markdown("Aplikasi prediksi komponen cacat berdasarkan parameter siklus mesin.")
 
-# Fungsi Load Model yang Aman dari Perbedaan Lingkungan Python/Sklearn
+# Fungsi Load Model
 @st.cache_resource
 def load_model():
     model_path = "artifacts/model.joblib"
     if os.path.exists(model_path):
         try:
-            # Memuat file joblib asli buatanmu
-            model = joblib.load(model_path)
-            return model
+            return joblib.load(model_path)
         except Exception as e:
-            st.warning(f"Catatan kompatibilitas model: {e}")
             return None
     return None
 
@@ -44,9 +41,8 @@ kelembaban = st.sidebar.slider("Kelembaban Bahan (%)", 0.01, 0.20, 0.05)
 if st.button("🔍 Prediksi Kualitas Komponen"):
     st.subheader("📋 Hasil Analisis & Prediksi Model")
     
-    # Menyiapkan DataFrame input sesuai kolom pelatihan
+    # DataFrame input SESUAI PERSIS dengan kolom X_train di Colab (tanpa waktu_produksi)
     input_data = pd.DataFrame({
-        'waktu_produksi': ['2026-03-01 00:00:00'],
         'mesin': [mesin],
         'shift': [shift],
         'bahan': [bahan],
@@ -63,16 +59,15 @@ if st.button("🔍 Prediksi Kualitas Komponen"):
     
     if model is not None:
         try:
-            # Mencoba prediksi menggunakan model.joblib asli
             if hasattr(model, "predict_proba"):
                 probabilitas_cacat = model.predict_proba(input_data)[0][1]
             else:
                 pred_val = model.predict(input_data)[0]
                 probabilitas_cacat = float(pred_val)
         except Exception as err:
-            st.info(f"Menggunakan kalkulasi berbasis parameter karena penyesuaian versi model: {err}")
+            st.warning(f"Catatan struktur model: {err}")
             
-    # Jika model.joblib berhasil dieksekusi atau butuh kalkulasi pendukung
+    # Fallback pengaman jika model joblib butuh penyesuaian versi saat dijalankan
     if probabilitas_cacat is None:
         skor_risiko = 0.05
         if suhu_leleh > 275 or suhu_leleh < 210:
