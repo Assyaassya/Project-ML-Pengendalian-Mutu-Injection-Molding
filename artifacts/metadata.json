@@ -1,0 +1,25 @@
+{
+    "kasus": "01 - Pengendalian Mutu Injection Molding",
+    "model": "XGBoost Classifier",
+    "metrik_utama": "PR-AUC",
+    "pr_auc_baseline": 0.5211,
+    "pr_auc_xgboost": 0.6298,
+    "threshold_optimal": 0.31,
+    "fitur_numerik": [
+        "suhu_leleh_C",
+        "suhu_cetakan_C",
+        "tekanan_injeksi_bar",
+        "kecepatan_injeksi_mm_s",
+        "waktu_pendinginan_s",
+        "waktu_siklus_s",
+        "kelembaban_bahan_pct",
+        "bahan_ABS",
+        "bahan_PC",
+        "bahan_PP"
+    ],
+    "fitur_kategorikal": [
+        "mesin",
+        "shift",
+        "bahan"
+    ]
+}
