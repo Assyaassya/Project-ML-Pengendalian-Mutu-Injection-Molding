@@ -120,12 +120,14 @@ div.sidebar-header-card::after {
     margin-bottom: 8px;
 }
 
-div.sidebar-header-card h2 {
+.sidebar-title {
+    font-family: 'Fredoka', sans-serif !important;
     margin: 0 0 5px 0 !important;
-    font-size: 1.35rem !important;
+    font-size: 1.38rem !important;
     font-weight: 400 !important;
     color: #FFFDF7 !important;
     text-shadow: 1.5px 1.5px 0px #231F20;
+    line-height: 1.25;
 }
 
 div.sidebar-header-card p {
@@ -234,19 +236,32 @@ div.miao-hero {
     box-shadow: 2px 2px 0px #231F20;
 }
 
-div.miao-hero h1 {
-    margin: 0 0 6px 0 !important;
-    font-size: 2.05rem !important;
+/* Judul Utama ala Tipografi Stiker (Putih Krem + Outline Tegas) */
+.hero-title {
+    font-family: 'Fredoka', sans-serif !important;
+    font-size: 2.15rem !important;
     font-weight: 600 !important;
+    line-height: 1.2 !important;
+    letter-spacing: 0.6px !important;
     color: #FFFDF7 !important;
-    text-shadow: 2px 2px 0px #231F20;
+    -webkit-text-stroke: 1.4px #231F20;
+    paint-order: stroke fill;
+    text-shadow: 3px 3px 0px #231F20;
+    margin: 2px 0 8px 0 !important;
 }
 
-div.miao-hero p {
+.hero-title span.highlight-word {
+    color: #FAF0BE !important;
+}
+
+.hero-subtitle {
+    font-family: 'Nunito', sans-serif !important;
+    font-size: 0.98rem !important;
+    font-weight: 700 !important;
+    color: #FFFDF7 !important;
+    text-shadow: 1px 1px 0px rgba(35, 31, 32, 0.55);
     margin: 0 0 14px 0 !important;
-    font-size: 1rem !important;
-    color: #FFF8EC !important;
-    font-weight: 700;
+    letter-spacing: 0.2px;
 }
 
 .hero-pills {
@@ -401,8 +416,8 @@ st.markdown("""
 <div class="miao-hero">
 <div>
 <div class="miao-badge">★ Smart Factory QC • Assya &amp; Ilma Edition ★</div>
-<h1>Quality Control — Injection Molding</h1>
-<p>Sistem Prediksi &amp; Monitoring Mutu Produk Berbasis Machine Learning</p>
+<div class="hero-title">Quality Control — <span class="highlight-word">Injection Molding</span></div>
+<div class="hero-subtitle">Sistem Prediksi &amp; Monitoring Mutu Produk Berbasis Machine Learning</div>
 <div class="hero-pills">
 <span class="hero-pill" style="background:#FAF0BE;">🌡️ Thermal Check</span>
 <span class="hero-pill" style="background:#DCE9F5;">💨 Pressure Monitor</span>
@@ -463,7 +478,7 @@ st.markdown("""
 st.sidebar.markdown("""
 <div class="sidebar-header-card">
 <div class="sidebar-clasp">🐾 Control Panel</div>
-<h2>🐱 Parameter Mesin</h2>
+<div class="sidebar-title">🐱 Parameter Mesin</div>
 <p>Atur parameter produksi untuk mengecek kualitas produk ★</p>
 </div>
 """, unsafe_allow_html=True)
