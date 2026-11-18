@@ -596,8 +596,6 @@ with left_col:
 </div>
 """, unsafe_allow_html=True)
 
-        st.markdown(f"<p style='font-size:0.84rem;'>Catatan: Letakkan file <code>{MODEL_PATH}</code> di folder project untuk prediksi model asli.</p>", unsafe_allow_html=True)
-
     # Tabel Ringkasan
     st.markdown(f"""
 <table class="miao-table">
