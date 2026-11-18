@@ -17,7 +17,7 @@ st.set_page_config(
 )
 
 # =========================================================
-# CUSTOM CSS - TAMPILAN DASHBOARD
+# CUSTOM CSS - TEMA BLACK PINK
 # =========================================================
 st.markdown("""
 <style>
@@ -27,51 +27,60 @@ st.markdown("""
         font-family: 'DM Sans', sans-serif;
     }
 
-    /* BACKGROUND UTAMA: gradient kuat + aksen warna */
+    /* BACKGROUND UTAMA: Hitam pekat + aksen glow pink */
     .stApp,
     [data-testid="stAppViewContainer"] {
         background:
-            radial-gradient(ellipse at 8% 8%, rgba(56, 139, 253, 0.28) 0%, transparent 34%),
-            radial-gradient(ellipse at 92% 14%, rgba(164, 102, 230, 0.25) 0%, transparent 32%),
-            radial-gradient(ellipse at 78% 92%, rgba(255, 133, 174, 0.22) 0%, transparent 34%),
-            linear-gradient(125deg, #dcecff 0%, #e9e1ff 38%, #ffe4ef 72%, #fff0d8 100%) !important;
+            radial-gradient(ellipse at 10% 10%, rgba(255, 46, 136, 0.24) 0%, transparent 38%),
+            radial-gradient(ellipse at 90% 15%, rgba(219, 39, 119, 0.20) 0%, transparent 35%),
+            radial-gradient(ellipse at 80% 90%, rgba(244, 114, 182, 0.16) 0%, transparent 38%),
+            linear-gradient(135deg, #07070a 0%, #110b14 48%, #1a0c18 100%) !important;
         background-attachment: fixed !important;
+        color: #f8fafc !important;
     }
 
     /* Jangan biarkan area konten Streamlit menimpa background */
     [data-testid="stMain"],
-    [data-testid="stMainBlockContainer"],
     .main,
     .main .block-container {
         background: transparent !important;
     }
 
-    [data-testid="stHeader"] {
-        background: rgba(255, 255, 255, 0.35) !important;
+    /* Warna teks umum agar kontras di latar gelap */
+    h1, h2, h3, h4, p, span, label, [data-testid="stMarkdownContainer"] {
+        color: #f8fafc !important;
     }
 
+    [data-testid="stHeader"] {
+        background: rgba(10, 10, 14, 0.65) !important;
+        backdrop-filter: blur(8px);
+    }
+
+    /* SIDEBAR: Hitam-pink elegan */
     [data-testid="stSidebar"] {
-        background: linear-gradient(180deg, #142b4d 0%, #253b70 52%, #3c3478 100%);
-        border-right: 1px solid #344d82;
+        background: linear-gradient(180deg, #09090d 0%, #170d16 55%, #261022 100%);
+        border-right: 1px solid rgba(255, 46, 136, 0.35);
     }
 
     [data-testid="stSidebar"] * {
-        color: #edf3fb !important;
+        color: #fce7f3 !important;
     }
 
     [data-testid="stSidebar"] [data-baseweb="select"] > div,
     [data-testid="stSidebar"] [data-baseweb="input"] > div {
-        background: #1d2c40 !important;
-        border: 1px solid #34465d !important;
+        background: #18121b !important;
+        border: 1px solid rgba(255, 46, 136, 0.45) !important;
         border-radius: 10px !important;
     }
 
     [data-testid="stSidebar"] [data-testid="stMarkdownContainer"] p {
-        color: #c4d0df !important;
+        color: #f9a8d4 !important;
     }
 
-    [data-testid="stSidebar"] [data-testid="stSlider"] [data-testid="stTickBar"] {
-        background: #34465d;
+    /* Aksen slider pink */
+    [data-testid="stSidebar"] [data-testid="stSlider"] [role="slider"] {
+        background-color: #ff2e88 !important;
+        border: 2px solid #ffffff !important;
     }
 
     .main .block-container {
@@ -80,44 +89,60 @@ st.markdown("""
         padding-bottom: 3rem;
     }
 
-    /* Panel konten putih transparan agar warna latar tetap terlihat */
+    /* Panel konten gelap transparan dengan garis tepi pink */
     [data-testid="stMainBlockContainer"] {
-        background: rgba(255, 255, 255, 0.48) !important;
-        border: 1px solid rgba(255, 255, 255, 0.72);
+        background: rgba(15, 13, 20, 0.76) !important;
+        border: 1px solid rgba(255, 46, 136, 0.28);
         border-radius: 24px;
-        box-shadow: 0 12px 34px rgba(64, 76, 145, 0.08);
-        backdrop-filter: blur(8px);
+        box-shadow: 0 12px 36px rgba(0, 0, 0, 0.55);
+        backdrop-filter: blur(10px);
     }
 
+    /* HERO BANNER */
     .hero {
-        background: linear-gradient(115deg, #123b70 0%, #176b87 38%, #6250a4 72%, #9a4f83 100%);
+        background: linear-gradient(115deg, #0b0b10 0%, #240b1b 42%, #9d174d 78%, #ff2e88 100%);
+        border: 1px solid rgba(255, 105, 180, 0.4);
         padding: 30px 34px;
         border-radius: 20px;
-        color: white;
+        color: #ffffff;
         margin-bottom: 24px;
-        box-shadow: 0 10px 28px rgba(18, 59, 112, 0.22);
+        box-shadow: 0 10px 30px rgba(255, 46, 136, 0.22);
     }
 
     .hero h1 {
         margin: 0 0 8px 0;
         font-size: 2rem;
         font-weight: 800;
-        color: #ffffff;
+        color: #ffffff !important;
     }
 
     .hero p {
         margin: 0;
         font-size: 1rem;
-        color: rgba(255, 255, 255, 0.88);
+        color: #fbcfe8 !important;
     }
 
-    .card {
-        background: rgba(255, 255, 255, 0.78);
-        border: 1px solid rgba(255, 255, 255, 0.9);
+    /* METRIC CARDS */
+    [data-testid="stMetric"] {
+        background: rgba(24, 18, 29, 0.85);
+        border: 1px solid rgba(255, 46, 136, 0.3);
         border-radius: 16px;
-        padding: 20px;
-        box-shadow: 0 6px 20px rgba(31, 41, 55, 0.06);
-        margin-bottom: 16px;
+        padding: 16px 20px;
+        box-shadow: 0 6px 18px rgba(0, 0, 0, 0.35);
+    }
+
+    [data-testid="stMetricLabel"] p {
+        color: #f9a8d4 !important;
+        font-weight: 600;
+    }
+
+    [data-testid="stMetricValue"] {
+        color: #ff4da6 !important;
+        font-weight: 800;
+    }
+
+    hr {
+        border-color: rgba(255, 46, 136, 0.25) !important;
     }
 </style>
 """, unsafe_allow_html=True)
@@ -154,7 +179,7 @@ input_df = pd.DataFrame({
 })
 
 # =========================================================
-# LOAD MODEL ML (SESUAIKAN NAMA FILE MODEL ANDA)
+# LOAD MODEL ML
 # =========================================================
 MODEL_PATH = "model_qc_injection.joblib"
 
@@ -191,7 +216,6 @@ with left_col:
         if proba is not None:
             st.write(f"Tingkat Keyakinan Model: **{np.max(proba) * 100:.2f}%**")
     else:
-        # Fallback simulasi jika file .joblib belum diunggah ke folder
         is_ok = (205 <= melt_temp <= 245) and (900 <= injection_pressure <= 1350) and (cooling_time >= 12)
         if is_ok:
             st.success("**Status Produk: LOLOS QC (OK)** — *Mode Simulasi*")
@@ -205,7 +229,7 @@ with right_col:
     st.subheader("📊 Profil Parameter Saat Ini")
     fig, ax = plt.subplots(figsize=(7, 3.8))
     fig.patch.set_alpha(0.0)
-    ax.patch.set_alpha(0.3)
+    ax.set_facecolor((0.08, 0.06, 0.11, 0.65))
 
     normalized_vals = [
         (melt_temp - 180) / (280 - 180) * 100,
@@ -216,9 +240,15 @@ with right_col:
         (cycle_time - 15) / (90 - 15) * 100,
     ]
     labels = ["Melt Temp", "Mold Temp", "Inj. Press", "Hold Press", "Cooling", "Cycle"]
+    pink_palette = ["#ff2e88", "#f43f8e", "#ec4899", "#db2777", "#f472b6", "#be185d"]
 
-    sns.barplot(x=normalized_vals, y=labels, palette="viridis", ax=ax)
+    sns.barplot(x=normalized_vals, y=labels, palette=pink_palette, ax=ax)
     ax.set_xlim(0, 100)
-    ax.set_xlabel("Persentase terhadap Rentang Operasi (%)")
-    ax.set_title("Distribusi Relatif Parameter Proses")
+    ax.set_xlabel("Persentase terhadap Rentang Operasi (%)", color="#fbcfe8")
+    ax.set_title("Distribusi Relatif Parameter Proses", color="#ffffff", fontweight="bold")
+    ax.tick_params(colors="#fce7f3")
+    for spine in ax.spines.values():
+        spine.set_color("#ff2e88")
+        spine.set_alpha(0.4)
+
     st.pyplot(fig)
