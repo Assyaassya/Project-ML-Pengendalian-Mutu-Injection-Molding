@@ -375,7 +375,7 @@ st.markdown("""
 st.sidebar.markdown("""
 <div class="sidebar-header-card">
     <div class="sidebar-clasp">🐾 Control Panel</div>
-    <h2>🐱 Parameter Mesin</h2>
+    <h2 style="font-weight: 400 !important;">🐱 Parameter Mesin</h2>
     <p>Atur parameter produksi untuk mengecek kualitas produk ★</p>
 </div>
 """, unsafe_allow_html=True)
