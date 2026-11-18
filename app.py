@@ -16,7 +16,7 @@ st.set_page_config(
 )
 
 # =========================================================
-# CUSTOM CSS - TEMA TUMBLER MiAO (BUTTERCREAM & CORAL PINK)
+# CUSTOM CSS - TEMA TUMBLER MiAO (PASTEL MULTI-TONE)
 # =========================================================
 st.markdown("""
 <style>
@@ -31,12 +31,12 @@ st.markdown("""
         letter-spacing: 0.3px;
     }
 
-    /* BACKGROUND UTAMA: Buttercream Yellow + taburan bintang & aksen lembut */
+    /* BACKGROUND UTAMA: Buttercream Yellow + taburan bintang */
     .stApp,
     [data-testid="stAppViewContainer"] {
         background-color: #FAF0BE !important;
         background-image:
-            radial-gradient(circle at 12% 14%, rgba(232, 111, 114, 0.16) 0%, transparent 28%),
+            radial-gradient(circle at 12% 14%, rgba(232, 111, 114, 0.14) 0%, transparent 28%),
             radial-gradient(circle at 88% 85%, rgba(155, 182, 204, 0.22) 0%, transparent 32%),
             radial-gradient(#E86F72 1.5px, transparent 1.5px),
             radial-gradient(#F4CE46 2px, #FAF0BE 2px) !important;
@@ -51,7 +51,6 @@ st.markdown("""
         background: transparent !important;
     }
 
-    /* Warna teks utama dark charcoal agar kontras & jelas terbaca */
     h1, h2, h3, h4, p, span, label, [data-testid="stMarkdownContainer"] {
         color: #231F20 !important;
     }
@@ -70,43 +69,126 @@ st.markdown("""
         backdrop-filter: blur(8px);
     }
 
-    /* SIDEBAR: Coral / Salmon Pink seperti tutup botol */
+    /* =====================================================
+       SIDEBAR BARU: GRADASI PEACH - CREAM - PASTEL BLUE
+       ===================================================== */
     [data-testid="stSidebar"] {
-        background: linear-gradient(180deg, #E86F72 0%, #DF5E62 100%) !important;
+        background: linear-gradient(180deg, #FDE6DC 0%, #FAF0BE 52%, #DCE9F5 100%) !important;
         border-right: 3px solid #231F20;
     }
 
-    [data-testid="stSidebar"] h1,
-    [data-testid="stSidebar"] h2,
-    [data-testid="stSidebar"] h3,
-    [data-testid="stSidebar"] p,
-    [data-testid="stSidebar"] span,
-    [data-testid="stSidebar"] label {
-        color: #FFFDF7 !important;
+    [data-testid="stSidebar"] > div:first-child {
+        padding-top: 1.2rem;
     }
 
-    /* Slider styling ala aksen peach & kuning headphone */
-    [data-testid="stSidebar"] [data-testid="stSlider"] [role="slider"] {
+    /* Kartu Header Sidebar ala Tutup Tumbler Coral + Peach */
+    .sidebar-header-card {
+        background: linear-gradient(135deg, #E86F72 0%, #EE8385 100%);
+        border: 2.5px solid #231F20;
+        border-radius: 20px;
+        padding: 16px 18px;
+        margin-bottom: 14px;
+        box-shadow: 4px 4px 0px #231F20;
+        position: relative;
+    }
+
+    .sidebar-clasp {
+        display: inline-block;
+        background: #FCD5C8;
+        color: #231F20 !important;
+        border: 2px solid #231F20;
+        border-radius: 999px;
+        padding: 2px 10px;
+        font-size: 0.72rem;
+        font-weight: 800;
+        margin-bottom: 6px;
+    }
+
+    .sidebar-header-card h2 {
+        margin: 0 0 4px 0;
+        font-size: 1.32rem !important;
+        color: #FFFDF7 !important;
+        text-shadow: 1.5px 1.5px 0px #231F20;
+    }
+
+    .sidebar-header-card p {
+        margin: 0;
+        font-size: 0.82rem !important;
+        color: #FFF6E9 !important;
+        font-weight: 700;
+        line-height: 1.35;
+    }
+
+    /* Membungkus setiap Slider Sidebar menjadi Kartu Stiker Lucu */
+    [data-testid="stSidebar"] [data-testid="stSlider"] {
+        background: #FFFDF7;
+        border: 2px solid #231F20;
+        border-radius: 16px;
+        padding: 12px 14px 10px 14px;
+        margin-bottom: 4px;
+        box-shadow: 3.5px 3.5px 0px #9BB6CC;
+        transition: transform 0.18s ease, box-shadow 0.18s ease;
+    }
+
+    [data-testid="stSidebar"] [data-testid="stSlider"]:hover {
+        transform: translate(-1px, -2px);
+        box-shadow: 4.5px 5px 0px #E86F72;
+    }
+
+    [data-testid="stSidebar"] [data-testid="stSlider"] label p {
+        color: #231F20 !important;
+        font-weight: 800 !important;
+        font-size: 0.88rem !important;
+    }
+
+    /* Badge angka nilai slider */
+    [data-testid="stSidebar"] [data-testid="stSlider"] [data-testid="stSliderThumbValue"] {
+        background: #FCD5C8 !important;
+        color: #231F20 !important;
+        border: 1.5px solid #231F20 !important;
+        border-radius: 8px !important;
+        padding: 1px 7px !important;
+        font-weight: 800 !important;
+        font-size: 0.8rem !important;
+    }
+
+    /* Track & Thumb Slider (Kuning Headphone + Gradasi Coral-Biru) */
+    [data-testid="stSidebar"] [data-baseweb="slider"] > div > div {
+        background-color: #FCD5C8 !important;
+        height: 6px !important;
+        border-radius: 999px !important;
+    }
+
+    [data-testid="stSidebar"] [data-baseweb="slider"] > div > div > div:first-child {
+        background: linear-gradient(90deg, #7FA3C2 0%, #E86F72 100%) !important;
+        height: 6px !important;
+        border-radius: 999px !important;
+    }
+
+    [data-testid="stSidebar"] [data-baseweb="slider"] div[role="slider"] {
         background-color: #F7D44C !important;
         border: 2.5px solid #231F20 !important;
-        box-shadow: 0 2px 0 #231F20;
+        width: 18px !important;
+        height: 18px !important;
+        box-shadow: 0 2px 0 #231F20 !important;
     }
 
+    /* =====================================================
+       KONTAINER UTAMA & HERO BANNER
+       ===================================================== */
     .main .block-container {
         max-width: 1400px;
         padding-top: 1.8rem;
         padding-bottom: 3rem;
     }
 
-    /* KONTAINER UTAMA: Kartu krim hangat dengan border stiker retro */
     [data-testid="stMainBlockContainer"] {
         background: rgba(255, 253, 245, 0.92) !important;
         border: 3px solid #231F20;
         border-radius: 28px;
-        box-shadow: 6px 6px 0px #E86F72;
+        box-shadow: 6px 6px 0px #9BB6CC;
     }
 
-    /* HERO BANNER: Coral Pink + Peach Clasp + Ilustrasi Kucing */
     .miao-hero {
         background: linear-gradient(125deg, #E86F72 0%, #EE8385 100%);
         border: 3px solid #231F20;
@@ -288,17 +370,22 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 # =========================================================
-# SIDEBAR - INPUT PARAMETER MESIN
+# SIDEBAR - HEADER CARD & SLIDER PARAMETER MESIN
 # =========================================================
-st.sidebar.markdown("## 🐱 Parameter Mesin")
-st.sidebar.caption("Atur parameter produksi untuk mengecek kualitas produk ★")
+st.sidebar.markdown("""
+<div class="sidebar-header-card">
+    <div class="sidebar-clasp">🐾 Control Panel</div>
+    <h2>🐱 Parameter Mesin</h2>
+    <p>Atur parameter produksi untuk mengecek kualitas produk ★</p>
+</div>
+""", unsafe_allow_html=True)
 
-melt_temp = st.sidebar.slider("Melt Temperature (°C)", 180.0, 280.0, 243.5, 0.5)
-mold_temp = st.sidebar.slider("Mold Temperature (°C)", 20.0, 90.0, 71.0, 0.5)
-injection_pressure = st.sidebar.slider("Injection Pressure (bar)", 500.0, 1800.0, 1490.0, 10.0)
-holding_pressure = st.sidebar.slider("Holding Pressure (bar)", 300.0, 1400.0, 800.0, 10.0)
-cooling_time = st.sidebar.slider("Cooling Time (detik)", 5.0, 45.0, 18.0, 0.5)
-cycle_time = st.sidebar.slider("Cycle Time (detik)", 15.0, 90.0, 35.0, 0.5)
+melt_temp = st.sidebar.slider("🔥 Melt Temperature (°C)", 180.0, 280.0, 243.5, 0.5)
+mold_temp = st.sidebar.slider("❄️ Mold Temperature (°C)", 20.0, 90.0, 71.0, 0.5)
+injection_pressure = st.sidebar.slider("💨 Injection Pressure (bar)", 500.0, 1800.0, 1490.0, 10.0)
+holding_pressure = st.sidebar.slider("🛡️ Holding Pressure (bar)", 300.0, 1400.0, 800.0, 10.0)
+cooling_time = st.sidebar.slider("🧊 Cooling Time (detik)", 5.0, 45.0, 18.0, 0.5)
+cycle_time = st.sidebar.slider("⏱️ Cycle Time (detik)", 15.0, 90.0, 35.0, 0.5)
 
 input_df = pd.DataFrame({
     "Melt_Temp": [melt_temp],
@@ -450,7 +537,6 @@ with right_col:
         (cycle_time - 15) / (90 - 15) * 100,
     ]
     labels = ["Melt Temp", "Mold Temp", "Inj. Press", "Hold Press", "Cooling", "Cycle"]
-    # Palet persis dari karakter & bagian tumbler
     tumbler_palette = ["#E86F72", "#9BB6CC", "#231F20", "#F7D44C", "#F5A99B", "#D95B60"]
 
     bars = ax.barh(labels, normalized_vals, color=tumbler_palette, height=0.58, edgecolor="#231F20", linewidth=1.6)
