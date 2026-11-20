@@ -51,7 +51,7 @@ app/            API (FastAPI) dan antarmuka (Streamlit)
 
 ## Keterbatasan
 
-[Dalam kondisi apa model ini tidak dapat dipercaya? Data apa yang belum tersedia?]
+Model dilatih pada dataset proses *injection molding* yang bersifat sintetis sehingga belum tentu menangkap seluruh dinamika atau gangguan tak terduga di lini produksi nyata. Prediksi juga menjadi kurang dapat diandalkan ketika parameter input berada jauh di luar rentang data pelatihan atau ketika aplikasi masih berjalan dengan penyesuaian *environment* artefak/simulasi. Selain itu, data produksi aktual dari pabrik serta kalibrasi biaya operasional *real-time* belum tersedia pada tahap ini.
 
 ## Daftar periksa sebelum dikumpulkan
 
