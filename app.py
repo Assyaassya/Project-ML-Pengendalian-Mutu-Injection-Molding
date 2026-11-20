@@ -559,7 +559,7 @@ st.sidebar.markdown("""
 
 mesin = st.sidebar.selectbox("🏭 Pilih Mesin", ["IM-01", "IM-02", "IM-03", "IM-04"], index=0)
 shift = st.sidebar.selectbox("🕒 Pilih Shift", ["pagi", "siang", "malam"], index=1)
-jenis_bahan = st.sidebar.selectbox("🧪 Jenis Bahan Plastik", ["PP", "PE", "PC"], index=0)
+jenis_bahan = st.sidebar.selectbox("🧪 Jenis Bahan Plastik", ["PP", "ABS", "PC"], index=0)
 
 melt_temp = st.sidebar.slider("🔥 Melt Temperature (°C)", 180.0, 280.0, 243.5, 0.5)
 mold_temp = st.sidebar.slider("❄️ Mold Temperature (°C)", 20.0, 90.0, 71.0, 0.5)
@@ -608,7 +608,7 @@ def hitung_simulasi_probabilitas(m_temp, mo_temp, inj_p, hold_p, cool_t, cyc_t, 
         prob += abs(cyc_t - 40.0) * 0.45
     if shf == "malam":
         prob += 2.5
-    if bhn == "PC":
+    if bhn in ["PC", "ABS"]:
         prob += 1.5
     if msn == "IM-03":
         prob += 1.0
