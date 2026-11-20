@@ -1,16 +1,16 @@
 # Pengendalian Mutu Injection Molding · Tim AI (Assya & Ilma) 16
 
-**Kasus:** Pengendalian Mutu Injection Molding · **Aplikasi:**  · **Video:** https://drive.google.com/file/d/191HlPajl1P98dq7k-voMxrqtmskhiwjV/view?usp=sharing
+**Kasus:** Pengendalian Mutu Injection Molding · **Aplikasi:** https://project-ml-pengendalian-mutu-injection-molding-ilma-asya.streamlit.app/ · **Video:** https://drive.google.com/file/d/191HlPajl1P98dq7k-voMxrqtmskhiwjV/view?usp=sharing
 
 | Anggota | NIM | Bagian yang dikerjakan |
 |---|---|---|
-| [nama] | [NIM] | [misalnya EDA dan pembersihan data] |
-| [nama] | [NIM] | [misalnya model dan evaluasi] |
-| [nama] | [NIM] | [misalnya API dan aplikasi] |
+| Assya Nurhasanah | 2401047 | EDA, pembersihan data, feature enginering, antarmuka aplikasi (UI) |
+| Ilma Hafizhotul Qolbi | 2405064 | pemodelan, evaluasi, API, dan deployment |
+
 
 ## Masalah dan pengguna
 
-[Dua atau tiga kalimat: siapa penggunanya dan keputusan apa yang dibantu oleh model ini.]
+Pengguna utama aplikasi ini adalah tim Quality Control dan operator produksi injection molding. Model membantu mereka mengambil keputusan cepat apakah suatu siklus produksi berisiko menghasilkan produk cacat, sehingga parameter mesin dapat segera diperiksa atau disesuaikan sebelum cacat meluas.
 
 ## Data dan pembersihan
 
