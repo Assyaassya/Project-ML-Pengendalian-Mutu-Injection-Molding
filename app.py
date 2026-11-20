@@ -584,7 +584,7 @@ input_df = pd.DataFrame({
 # LOAD MODEL ML & PERHITUNGAN PROBABILITAS CACAT
 # =========================================================
 MODEL_PATH = "model_qc_injection.joblib"
-THRESHOLD_BISNIS = 31.0
+THRESHOLD_BISNIS = 25.0
 
 @st.cache_resource
 def load_model(path):
