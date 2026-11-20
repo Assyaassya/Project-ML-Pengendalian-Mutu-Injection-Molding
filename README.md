@@ -16,16 +16,20 @@ Pengguna utama aplikasi ini adalah tim Quality Control dan operator produksi inj
 
 | Masalah yang ditemukan | Jumlah baris | Cara menangani |
 |---|---|---|
-| [misalnya baris duplikat] | [angka] | [misalnya dihapus dengan drop_duplicates] |
+| Baris duplikat | 350 | Dihapus dengan drop_duplicates().reset_index(drop=True) sehingga data akhir menjadi 25000 baris |
+| Nilai mustahil (<= 0) pada tekanan_injeksi_bar | 127 | Diubah menjadi np.nan untuk diimputasi pada pipeline prapemrosesan |
+| Nilai mustahil (<= 0) pada waktu_siklus_s | 75 | Diubah menjadi np.nan untuk diimputasi pada pipeline prapemrosesan |
+| Nilai kosong bawaan pada waktu_pendinginan_s | 257 | Diimputasi menggunakan median pada pipeline prapemrosesan |
+| Suhu leleh ekstrem (> 350) pada suhu_leleh_C | 579 | Diubah menjadi np.nan untuk diimputasi pada pipeline prapemrosesan |
 
 ## Hasil
 
-| Model | [metrik utama] *validation* | [metrik utama] *test* |
+| Model | PR-AUC *validation* | PR-AUC *test* |
 |---|---|---|
-| *Baseline*: [nama *baseline*] | | |
-| [model final] | | |
+| *Baseline*: Logistic Regression | 0.4767 | [sesuaikan skor test baseline] |
+| XGBoost Classifier | [sesuaikan skor val XGBoost] | [sesuaikan skor test XGBoost] |
 
-*Threshold* yang dipakai: [angka], karena [alasan bisnis].
+*Threshold* yang dipakai: 0.25, karena pada simulasi biaya titik ambang batas ini menghasilkan total biaya paling rendah akibat biaya produk cacat yang lolos ke pelanggan lebih besar daripada biaya pengecekan atau penolakan berlebih.
 
 ## Cara menjalankan
 
