@@ -26,10 +26,8 @@ Pengguna utama aplikasi ini adalah tim Quality Control dan operator produksi inj
 
 | Model | PR-AUC *validation* | PR-AUC *test* |
 |---|---|---|
-| *Baseline*: Logistic Regression | 0.4767 | 0.4767 |
-| XGBoost Classifier | 0.4767 | 0.4767 |
-
-*Threshold* yang dipakai: 0.25, karena pada simulasi biaya titik ambang batas ini menghasilkan total biaya paling rendah akibat biaya produk cacat yang lolos ke pelanggan lebih besar daripada biaya pengecekan atau penolakan berlebih.
+| *Baseline*: Logistic Regression | 0.4767 | 0.5278 |
+| XGBoost Classifier | 0.6070 | 0.6723 |
 
 *Threshold* yang dipakai: 0.25, karena pada simulasi biaya titik ambang batas ini menghasilkan total biaya paling rendah akibat biaya produk cacat yang lolos ke pelanggan lebih besar daripada biaya pengecekan atau penolakan berlebih.
 
