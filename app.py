@@ -13,7 +13,7 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
-# custom css untuk tema tumbler MiAO (Assya & Ilma) + responsif HP
+# css + responsif HP
 st.markdown("""
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Nunito:wght@500;600;700;800&display=swap');
