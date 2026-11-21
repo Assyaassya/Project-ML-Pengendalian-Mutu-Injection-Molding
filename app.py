@@ -5,9 +5,7 @@ import matplotlib.pyplot as plt
 import joblib
 import os
 
-# =========================================================
 # KONFIGURASI HALAMAN
-# =========================================================
 st.set_page_config(
     page_title="QC Injection Molding • Assya & Ilma Edition",
     page_icon="🐱",
@@ -15,9 +13,7 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
-# =========================================================
-# CUSTOM CSS - TEMA TUMBLER MiAO (ASSYA & ILMA EDITION)
-# =========================================================
+# CSS 
 st.markdown("""
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Nunito:wght@500;600;700;800&display=swap');
@@ -75,9 +71,7 @@ code {
     backdrop-filter: blur(8px);
 }
 
-/* =====================================================
-   SIDEBAR: GRADASI PEACH - CREAM - PASTEL BLUE
-   ===================================================== */
+/* SIDEBAR: GRADASI PEACH - CREAM - PASTEL BLUE */
 [data-testid="stSidebar"] {
     background: linear-gradient(180deg, #FDE6DC 0%, #FAF0BE 52%, #DCE9F5 100%) !important;
     border-right: 3px solid #231F20;
@@ -226,9 +220,7 @@ div.sidebar-header-card p {
     box-shadow: 0 2px 0 #231F20 !important;
 }
 
-/* =====================================================
-   KONTAINER UTAMA & HERO BANNER
-   ===================================================== */
+/* KONTAINER UTAMA & HERO BANNER */
 .main .block-container {
     max-width: 1400px;
     padding-top: 1.8rem;
@@ -483,9 +475,7 @@ hr {
 </style>
 """, unsafe_allow_html=True)
 
-# =========================================================
-# HERO BANNER DENGAN STIKER "ASSYA" & "ILMA"
-# =========================================================
+# STIKER "ASSYA" & "ILMA"
 st.markdown("""
 <div class="miao-hero">
 <div>
@@ -546,9 +536,6 @@ st.markdown("""
 </div>
 """, unsafe_allow_html=True)
 
-# =========================================================
-# SIDEBAR - HEADER CARD, DROPDOWN & SLIDER PARAMETER MESIN
-# =========================================================
 st.sidebar.markdown("""
 <div class="sidebar-header-card">
 <div class="sidebar-clasp">🐾 Control Panel</div>
@@ -580,9 +567,7 @@ input_df = pd.DataFrame({
     "Cycle_Time": [cycle_time]
 })
 
-# =========================================================
 # LOAD MODEL ML & PERHITUNGAN PROBABILITAS CACAT
-# =========================================================
 MODEL_PATH = "model_qc_injection.joblib"
 THRESHOLD_BISNIS = 25.0
 
@@ -639,9 +624,8 @@ else:
 
 is_lolos_qc = probabilitas_cacat <= THRESHOLD_BISNIS
 
-# =========================================================
 # 4 KARTU METRIK UTAMA
-# =========================================================
+
 c1, c2, c3, c4 = st.columns(4)
 
 with c1:
@@ -678,9 +662,7 @@ with c4:
 
 st.markdown("---")
 
-# =========================================================
 # HASIL ANALISIS & PREDIKSI MODEL + VISUALISASI GRAFIK
-# =========================================================
 left_col, right_col = st.columns([1.15, 1.2], gap="large")
 
 with left_col:
