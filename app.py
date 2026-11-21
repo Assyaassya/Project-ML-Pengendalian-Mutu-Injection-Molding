@@ -13,7 +13,7 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
-# custom css untuk tema tumbler MiAO (Assya & Ilma)
+# custom css untuk tema tumbler MiAO (Assya & Ilma) + responsif HP
 st.markdown("""
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Nunito:wght@500;600;700;800&display=swap');
@@ -428,38 +428,126 @@ div.miao-hero {
     line-height: 1.15;
 }
 
-.miao-table {
+/* pembungkus tabel supaya bisa digeser ke samping saat dibuka di HP */
+.table-wrap {
     width: 100%;
-    border-collapse: collapse;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
     background: #FFFDF7;
     border: 2.5px solid #231F20;
     border-radius: 16px;
-    overflow: hidden;
     margin-top: 8px;
-    font-size: 0.85rem;
     box-shadow: 4px 4px 0px #F7D44C;
+}
+
+.miao-table {
+    width: 100%;
+    min-width: 460px;
+    border-collapse: collapse;
+    background: #FFFDF7;
+    font-size: 0.85rem;
 }
 
 .miao-table th {
     background: #FCD5C8;
     color: #231F20 !important;
-    padding: 9px 6px;
+    padding: 9px 8px;
     text-align: center;
     font-weight: 800;
     border-bottom: 2px solid #231F20;
+    white-space: nowrap;
 }
 
 .miao-table td {
     color: #231F20 !important;
-    padding: 9px 6px;
+    padding: 9px 8px;
     text-align: center;
     font-weight: 700;
+    white-space: nowrap;
 }
 
 hr {
     border: none;
     border-top: 2px dashed #E86F72 !important;
     margin: 1.4rem 0 !important;
+}
+
+/* penyesuaian tampilan otomatis saat dibuka di layar HP */
+@media (max-width: 768px) {
+    .main .block-container {
+        padding-top: 1rem !important;
+        padding-left: 0.75rem !important;
+        padding-right: 0.75rem !important;
+        padding-bottom: 2rem !important;
+    }
+
+    [data-testid="stMainBlockContainer"] {
+        border-radius: 20px;
+        box-shadow: 4px 4px 0px #9BB6CC;
+    }
+
+    div.miao-hero {
+        flex-direction: column;
+        align-items: stretch;
+        padding: 18px 16px;
+        gap: 14px;
+        border-radius: 20px;
+        box-shadow: 4px 4px 0px #231F20;
+    }
+
+    .hero-title {
+        font-size: 1.55rem !important;
+        -webkit-text-stroke: 1px #231F20;
+        text-shadow: 2px 2px 0px #231F20;
+    }
+
+    .hero-subtitle {
+        font-size: 0.86rem !important;
+        margin-bottom: 10px !important;
+    }
+
+    .hero-pills {
+        gap: 6px;
+    }
+
+    .hero-pill {
+        font-size: 0.72rem;
+        padding: 3px 10px;
+    }
+
+    .mascot-group {
+        width: 100%;
+        justify-content: center;
+        padding: 10px 12px;
+        gap: 12px;
+        box-sizing: border-box;
+    }
+
+    .mascot-card {
+        flex: 1;
+        max-width: 130px;
+        padding: 6px 10px 8px 10px;
+    }
+
+    .sticker-card {
+        padding: 12px 16px;
+        margin-bottom: 8px;
+        border-radius: 16px;
+    }
+
+    .sticker-value {
+        font-size: 1.45rem;
+    }
+
+    .prob-number {
+        font-size: 1.45rem;
+    }
+
+    .miao-table th,
+    .miao-table td {
+        padding: 8px 6px;
+        font-size: 0.8rem;
+    }
 }
 </style>
 """, unsafe_allow_html=True)
@@ -688,6 +776,7 @@ with kol_kiri:
 """, unsafe_allow_html=True)
 
     st.markdown(f"""
+<div class="table-wrap">
 <table class="miao-table">
 <thead>
 <tr>
@@ -714,6 +803,7 @@ with kol_kiri:
 </tr>
 </tbody>
 </table>
+</div>
 """, unsafe_allow_html=True)
 
 with kol_kanan:
@@ -755,4 +845,4 @@ with kol_kanan:
     ax.spines["left"].set_linewidth(1.5)
 
     plt.tight_layout()
-    st.pyplot(fig)
+    st.pyplot(fig, use_container_width=True)
